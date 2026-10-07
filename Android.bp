@@ -224,11 +224,6 @@ android_library_import {
 }
 
 android_library_import {
-    name: "blurview",
-    aars: ["libs/BlurView-3.2.0.aar"],
-}
-
-android_library_import {
     name: "device-state-schema",
     aars: ["libs/appfunctions_schema_androidx_archive.aar"],
 }
