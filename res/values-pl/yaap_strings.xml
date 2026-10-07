@@ -54,18 +54,18 @@
     <string name="prevent_ringing_option_normal">Normalny</string>
 
     <!-- OTA App -->
-    <string name="update_settings_title">Aktualizator YAAP</string>
+    <string name="update_settings_title">Aktualizator MaxxOS</string>
     <string name="update_settings_summary">Sprawdź najnowszą wersję ROM-u</string>
 
     <!-- Radio Diagnostics -->
     <string name="radio_info_title">Diagnostyka radia</string>
 
     <!-- YAAP Version -->
-    <string name="yaap_version">Wersja YAAP</string>
+    <string name="yaap_version">Wersja MaxxOS</string>
 
     <!-- YAAP Changelog -->
     <string name="yaap_changelog_title">Dziennik zmian</string>
-    <string name="yaap_changelog_summary">Zobacz dzienniki zmian aktualnej i poprzednich wersji YAAP</string>
+    <string name="yaap_changelog_summary">Zobacz dzienniki zmian aktualnej i poprzednich wersji MaxxOS</string>
 
     <!-- QSTile requires unlocking before being accessible -->
     <string name="qstile_requires_unlocking_title">Zabezpieczone kafelki QS wymagają odblokowania</string>
@@ -392,7 +392,7 @@
     <string name="etc_category_title">ETC</string>
 
     <!-- About YAAP -->
-    <string name="about_yaap_title">O YAAP</string>
+    <string name="about_yaap_title">O MaxxOS</string>
     <string name="about_yaap_summary">Nasz zespół, kod źródłowy, grupa telegram i więcej</string>
 
     <!-- YASP Import -->
@@ -437,7 +437,7 @@
     <!-- QS footer text -->
     <string name="qs_footer_text_show_title">Pokaż tekst stopki QS</string>
     <string name="qs_footer_text_string_title">Dostosuj tekst stopki</string>
-    <string name="qs_footer_text_string_summary">Pozostaw puste dla domyślnego YAAP</string>
+    <string name="qs_footer_text_string_summary">Pozostaw puste dla domyślnego MaxxOS</string>
 
     <!-- About -->
     <string name="about_title">O programie</string>

@@ -48,14 +48,14 @@
     <string name="prevent_ringing_option_normal">默认</string>
 
     <!-- OTA App -->
-    <string name="update_settings_title">YAAP 更新</string>
+    <string name="update_settings_title">MaxxOS 更新</string>
     <string name="update_settings_summary">检查系统更新</string>
 
     <!-- Radio Diagnostics -->
     <string name="radio_info_title">手机信息</string>
 
     <!-- YAAP Version -->
-    <string name="yaap_version">YAAP 版本</string>
+    <string name="yaap_version">MaxxOS 版本</string>
 
     <!-- QSTile requires unlocking before being accessible -->
     <string name="qstile_requires_unlocking_title">需要解锁手机才能使用磁贴面板</string>
@@ -377,7 +377,7 @@
     <string name="device_info_protected_single_press">点击显示</string>
 
     <!-- About YAAP -->
-    <string name="about_yaap_title">关于 YAAP</string>
+    <string name="about_yaap_title">关于 MaxxOS</string>
     <string name="about_yaap_summary">我们的团队、代码、Telegram 群组以及更多！</string>
 
     <!-- YASP Import -->
@@ -422,7 +422,7 @@
     <!-- QS footer text -->
     <string name="qs_footer_text_show_title">页脚文本</string>
     <string name="qs_footer_text_string_title">磁贴面板左下方文本</string>
-    <string name="qs_footer_text_string_summary">为空则显示 YAAP</string>
+    <string name="qs_footer_text_string_summary">为空则显示 MaxxOS</string>
 
     <!-- About -->
     <string name="about_title">关于</string>

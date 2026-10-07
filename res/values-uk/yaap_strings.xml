@@ -54,15 +54,15 @@
     <string name="prevent_ringing_option_normal">Normal</string>
 
     <!-- OTA App -->
-    <string name="update_settings_title">Оновлення YAAP</string>
+    <string name="update_settings_title">Оновлення MaxxOS</string>
     <string name="update_settings_summary">Перевірити доступні оновлення прошивки</string>
 
     <!-- YAAP Version -->
-    <string name="yaap_version">Версія YAAP</string>
+    <string name="yaap_version">Версія MaxxOS</string>
 	
     <!-- YAAP Changelog -->
     <string name="yaap_changelog_title">Список змін</string>
-    <string name="yaap_changelog_summary">Показати список останніх змін і версію YAAP</string>
+    <string name="yaap_changelog_summary">Показати список останніх змін і версію MaxxOS</string>
 
     <!-- QSTile requires unlocking before being accessible -->
     <string name="qstile_requires_unlocking_title">Важливі плитки в шторці вимагають розблокування</string>
@@ -350,7 +350,7 @@
     <string name="etc_category_title">Інше</string>
 
     <!-- About YAAP -->
-    <string name="about_yaap_title">Про YAAP</string>
+    <string name="about_yaap_title">Про MaxxOS</string>
     <string name="about_yaap_summary">наша команда, відкритий код, група Telegram тощо</string>
 
     <!-- Hotspot extras -->
@@ -413,7 +413,7 @@
     <!-- QS footer text -->
     <string name="qs_footer_text_show_title">Відображати текст у нижньому колонтитулі швидких налаштувань</string>
     <string name="qs_footer_text_string_title">Власний текст у нижньому колонтитулі швидких налаштувань</string>
-    <string name="qs_footer_text_string_summary">Залишіть пустим для стандартного тексту YAAP</string>
+    <string name="qs_footer_text_string_summary">Залишіть пустим для стандартного тексту MaxxOS</string>
 
     <!-- About -->
     <string name="about_title">Про нас</string>

@@ -54,18 +54,18 @@
     <string name="prevent_ringing_option_normal">Normal</string>
 
     <!-- OTA App -->
-    <string name="update_settings_title">YAAP Updater</string>
+    <string name="update_settings_title">MaxxOS Updater</string>
     <string name="update_settings_summary">Verificar a versão mais recente da ROM</string>
 
     <!-- Radio Diagnostics -->
     <string name="radio_info_title">Diagnósticos de rádio</string>
 
     <!-- YAAP Version -->
-    <string name="yaap_version">YAAP Build</string>
+    <string name="yaap_version">MaxxOS Build</string>
 
     <!-- YAAP Changelog -->
     <string name="yaap_changelog_title">Changelog</string>
-    <string name="yaap_changelog_summary">Ver os changelogs da versão atual e recentes do YAAP</string>
+    <string name="yaap_changelog_summary">Ver os changelogs da versão atual e recentes do MaxxOS</string>
 
     <!-- QSTile requires unlocking before being accessible -->
     <string name="qstile_requires_unlocking_title">Blocos seguros nas configurações rápidas requerem desbloqueio</string>
@@ -397,7 +397,7 @@
     <string name="etc_category_title">ETC</string>
 
     <!-- About YAAP -->
-    <string name="about_yaap_title">Sobre YAAP</string>
+    <string name="about_yaap_title">Sobre MaxxOS</string>
     <string name="about_yaap_summary">Nossa equipe, código fonte, grupo do telegram e mais</string>
 
     <!-- YASP Import -->
@@ -444,7 +444,7 @@
     <!-- QS footer text -->
     <string name="qs_footer_text_show_title">Mostrar texto do rodapé das configurações rápidas</string>
     <string name="qs_footer_text_string_title">Personalizar texto do rodapé</string>
-    <string name="qs_footer_text_string_summary">Definir como vazio para YAAP padrão</string>
+    <string name="qs_footer_text_string_summary">Definir como vazio para MaxxOS padrão</string>
 
     <!-- About -->
     <string name="about_title">Sobre</string>
