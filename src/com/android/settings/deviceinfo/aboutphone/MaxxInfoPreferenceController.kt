@@ -200,12 +200,12 @@ class MaxxInfoPreferenceController(context: Context) : AbstractPreferenceControl
         private const val KEY_DEVICE_INFO = "my_device_info_header"
         private const val KEY_BUILD_BANNER = "banner_logo"
 
-        private const val PROP_MAXX_CODE = "ro.maxx.code"
+        private const val PROP_MAXX_CODE = "ro.maxx.device"
         private const val PROP_MAXX_VERSION = "ro.maxx.version"
-        private const val PROP_MAXX_RELEASETYPE = "ro.maxx.releasetype"
+        private const val PROP_MAXX_RELEASETYPE = "ro.maxx.buildtype"
         private const val PROP_MAXX_MAINTAINER = "ro.maxx.maintainer"
         private const val PROP_MAXX_BUILD_VERSION = "ro.maxx.build.version"
-        private const val PROP_MAXX_CHIPSET = "ro.maxx.chipset"
+        private const val PROP_MAXX_CHIPSET = "ro.board.platform"
         private const val PROP_MAXX_SECURITY = "ro.build.version.security_patch"
     }
 }
