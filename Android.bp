@@ -122,6 +122,7 @@ android_library {
         "settings_connectivity_flags_lib",
         "Spa-search",
         "SettingsInterfaceLib",
+        "blurview",
 
         // app function dependencies
         "androidx.appsearch_appsearch",
@@ -220,6 +221,11 @@ android_app {
 android_library_import {
     name: "contextualcards",
     aars: ["libs/contextualcards.aar"],
+}
+
+android_library_import {
+    name: "blurview",
+    aars: ["libs/BlurView-3.2.0.aar"],
 }
 
 android_library_import {
