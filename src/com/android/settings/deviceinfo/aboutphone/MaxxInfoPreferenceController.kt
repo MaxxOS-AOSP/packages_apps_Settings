@@ -55,7 +55,7 @@ class MaxxInfoPreferenceController(context: Context) : AbstractPreferenceControl
     private var currentMessageIndex = 0
 
     private val versionMessages = listOf(
-        "#${getProp(PROP_MAXX_CODE)}",
+        "#${getProp(PROP_MAXX_CODE, "ro.maxx.device")}",
         "v ${getRomVersion()}"
     )
 
@@ -200,7 +200,7 @@ class MaxxInfoPreferenceController(context: Context) : AbstractPreferenceControl
         private const val KEY_DEVICE_INFO = "my_device_info_header"
         private const val KEY_BUILD_BANNER = "banner_logo"
 
-        private const val PROP_MAXX_CODE = "ro.maxx.device"
+        private const val PROP_MAXX_CODE = "ro.maxx.codename"
         private const val PROP_MAXX_VERSION = "ro.maxx.version"
         private const val PROP_MAXX_RELEASETYPE = "ro.maxx.buildtype"
         private const val PROP_MAXX_MAINTAINER = "ro.maxx.maintainer"
