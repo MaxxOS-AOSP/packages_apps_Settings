@@ -13,27 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.android.settings.display;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.ListPreference;
+import androidx.preference.SwitchPreference;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
-
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
 import com.yasp.settings.preferences.colorpicker.ColorPickerPreference;
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 import java.lang.CharSequence;
 
@@ -84,8 +84,8 @@ public class MonetSettings extends DashboardFragment implements
     private ColorPickerPreference mAccentColorPref;
     private SwitchPreferenceCompat mAccentBackgroundPref;
     private ColorPickerPreference mBgColorPref;
-    private CustomSeekBarPreference mLuminancePref;
-    private CustomSeekBarPreference mChromaPref;
+    private SeekBarPreference mLuminancePref;
+    private SeekBarPreference mChromaPref;
     private SwitchPreferenceCompat mWholePalettePref;
     private SwitchPreferenceCompat mTintBackgroundPref;
 
@@ -172,7 +172,8 @@ public class MonetSettings extends DashboardFragment implements
                 }
                 final boolean bgEnabled = enabled && bgColor != 0;
                 if (bgEnabled) {
-                    mBgColorPref.setNewPreviewColor(bgColor);
+                    mBgColorPref.setNewPreviewColor(
+                            ColorPickerPreference.convertToColorInt(Integer.toHexString(bgColor)));
                 } else if (!enabled) {
                     mAccentBackgroundPref.setEnabled(false);
                 }

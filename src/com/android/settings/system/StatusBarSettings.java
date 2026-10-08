@@ -13,8 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.system;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+import androidx.preference.Preference;
+import androidx.preference.SwitchPreference;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -28,24 +34,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreferenceCompat;
-
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.yasp.settings.preferences.SecureSettingSwitchPreference;
-import com.yasp.settings.preferences.SystemSettingListPreference;
-import com.yasp.settings.preferences.SystemSettingMasterSwitchPreference;
-import com.yasp.settings.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -61,7 +54,7 @@ public class StatusBarSettings extends DashboardFragment implements
     private static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
     private static final String CAMERA_MIC_INDICATOR_KEY = "camera_mic_icons_enabled";
 
-    private SystemSettingMasterSwitchPreference mNetTrafficState;
+    private SwitchPreference mNetTrafficState;
     private SwitchPreferenceCompat mCameraMicIndicator;
 
     @Override

@@ -13,8 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.system;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+import androidx.preference.Preference;
+import androidx.preference.ListPreference;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,24 +37,12 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-import androidx.preference.ListPreference;
-import androidx.preference.SwitchPreferenceCompat;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceGroup;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
-
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.widget.MainSwitchPreference;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
-import com.yasp.settings.preferences.SystemSettingSwitchPreference;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -68,11 +64,11 @@ public class NetTrafficMonSettings extends DashboardFragment implements
     private MainSwitchPreference mMasterSwitch;
     private ListPreference mNetTrafficLocation;
     private SwitchPreferenceCompat mThresholdMb;
-    private CustomSeekBarPreference mThreshold;
-    private SystemSettingSwitchPreference mShowArrows;
-    private SystemSettingSwitchPreference mShowText;
+    private SeekBarPreference mThreshold;
+    private SwitchPreference mShowArrows;
+    private SwitchPreference mShowText;
     private ListPreference mNetTrafficType;
-    private CustomSeekBarPreference mNetTrafficSize;
+    private SeekBarPreference mNetTrafficSize;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -108,7 +104,7 @@ public class NetTrafficMonSettings extends DashboardFragment implements
 
         int NetTrafficSize = Settings.System.getInt(resolver,
                 Settings.System.NETWORK_TRAFFIC_FONT_SIZE, 36);
-        mNetTrafficSize = (CustomSeekBarPreference) findPreference(NETWORK_TRAFFIC_FONT_SIZE);
+        mNetTrafficSize = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_FONT_SIZE);
         mNetTrafficSize.setValue(NetTrafficSize);
         mNetTrafficSize.setOnPreferenceChangeListener(this);
 
@@ -119,7 +115,7 @@ public class NetTrafficMonSettings extends DashboardFragment implements
         mNetTrafficLocation.setValue(String.valueOf(location));
         mNetTrafficLocation.setSummary(mNetTrafficLocation.getEntry());
 
-        mThreshold = (CustomSeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
+        mThreshold = (SeekBarPreference) findPreference(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         int value = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1, UserHandle.USER_CURRENT);
         boolean isMB = value > mThreshold.getMax();
@@ -134,8 +130,8 @@ public class NetTrafficMonSettings extends DashboardFragment implements
         mThresholdMb.setChecked(isMB);
         mThresholdMb.setOnPreferenceChangeListener(this);
 
-        mShowArrows = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_ARROW);
-        mShowText = (SystemSettingSwitchPreference) findPreference(NETWORK_TRAFFIC_TEXT);
+        mShowArrows = (SwitchPreference) findPreference(NETWORK_TRAFFIC_ARROW);
+        mShowText = (SwitchPreference) findPreference(NETWORK_TRAFFIC_TEXT);
 
         boolean showArrows = Settings.System.getIntForUser(resolver,
                 NETWORK_TRAFFIC_ARROW, 1, UserHandle.USER_CURRENT) == 1;

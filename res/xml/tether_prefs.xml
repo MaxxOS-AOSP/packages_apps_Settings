@@ -1,62 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:key="tether_settings" ns0:title="@string/tether_settings_title_all">
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+    <com.android.settingslib.widget.TopIntroPreference ns0:key="tether_prefs_top_intro" ns1:searchable="false" />
 
-          http://www.apache.org/licenses/LICENSE-2.0
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="wifi_tether" ns0:title="@string/wifi_hotspot_checkbox_text" ns0:summary="@string/wifi_hotspot_off_subtext" ns0:fragment="com.android.settings.wifi.tether.WifiTetherSettings" ns1:allowDividerAbove="true" />
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
+    <com.android.settingslib.RestrictedSwitchPreference ns0:key="usb_tether_settings" ns0:title="@string/usb_tethering_button_text" ns0:summary="@string/usb_tethering_subtext" ns1:keywords="@string/keywords_hotspot_tethering" />
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto"
-    android:key="tether_settings"
-    android:title="@string/tether_settings_title_all">
+    <SwitchPreferenceCompat ns0:key="enable_bluetooth_tethering" ns0:title="@string/bluetooth_tether_checkbox_text" ns0:summary="@string/bluetooth_tethering_subtext" ns1:keywords="@string/keywords_hotspot_tethering" />
 
-    <com.android.settingslib.widget.TopIntroPreference
-        android:key="tether_prefs_top_intro"
-        settings:searchable="false"/>
+    <SwitchPreferenceCompat ns0:key="enable_ethernet_tethering" ns0:title="@string/ethernet_tether_checkbox_text" ns0:summary="@string/ethernet_tethering_subtext" ns1:keywords="@string/keywords_hotspot_tethering" />
 
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="wifi_tether"
-        android:title="@string/wifi_hotspot_checkbox_text"
-        android:summary="@string/wifi_hotspot_off_subtext"
-        android:fragment="com.android.settings.wifi.tether.WifiTetherSettings"
-        settings:allowDividerAbove="true"/>
-
-    <com.android.settingslib.RestrictedSwitchPreference
-        android:key="usb_tether_settings"
-        android:title="@string/usb_tethering_button_text"
-        android:summary="@string/usb_tethering_subtext"
-        settings:keywords="@string/keywords_hotspot_tethering" />
-
-    <SwitchPreferenceCompat
-        android:key="enable_bluetooth_tethering"
-        android:title="@string/bluetooth_tether_checkbox_text"
-        android:summary="@string/bluetooth_tethering_subtext"
-        settings:keywords="@string/keywords_hotspot_tethering" />
-
-    <SwitchPreferenceCompat
-        android:key="enable_ethernet_tethering"
-        android:title="@string/ethernet_tether_checkbox_text"
-        android:summary="@string/ethernet_tethering_subtext"
-        settings:keywords="@string/keywords_hotspot_tethering" />
-
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="tethering_allow_vpn_upstreams"
-        android:title="@string/tethering_allow_vpn_upstreams_title"
-        android:summary="@string/tethering_allow_vpn_upstreams_summary"
-        android:defaultValue="false" />
-
-    <com.android.settingslib.widget.FooterPreference
-        android:key="disabled_on_data_saver"
-        android:title="@string/tether_settings_disabled_on_data_saver"
-        settings:searchable="false"/>
+    <com.android.settingslib.widget.FooterPreference ns0:key="disabled_on_data_saver" ns0:title="@string/tether_settings_disabled_on_data_saver" ns1:searchable="false" />
 </PreferenceScreen>

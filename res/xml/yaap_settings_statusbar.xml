@@ -1,49 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2024 Yet Another AOSP Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:title="@string/statusbar_title">
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+    
+    <SwitchPreferenceCompat ns0:key="camera_mic_icons_enabled" ns0:title="@string/camera_mic_indicator_title" ns0:summary="@string/camera_mic_indicator_summary" ns0:defaultValue="true" />
 
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/statusbar_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-
-    <!-- Network Traffic Monitor -->
-    <com.yasp.settings.preferences.SystemSettingMasterSwitchPreference
-        android:key="network_traffic_state"
-        android:title="@string/network_traffic_state_title"
-        android:fragment="com.android.settings.system.NetTrafficMonSettings"
-        android:defaultValue="false" />
-
-    <!-- Double tap to sleep -->
-    <com.yasp.settings.preferences.SystemSettingSwitchPreference
-        android:key="double_tap_sleep_gesture"
-        android:title="@string/double_tap_sleep_gesture_title"
-        android:summary="@string/double_tap_sleep_gesture_summary"
-        android:defaultValue="false" />
-
-    <!-- Camera & Mic privacy indicator -->
-    <SwitchPreferenceCompat
-        android:key="camera_mic_icons_enabled"
-        android:title="@string/camera_mic_indicator_title"
-        android:summary="@string/camera_mic_indicator_summary"
-        android:defaultValue="true" />
-
-    <!-- SystemUI tuner -->
-    <Preference
-        android:key="statusbar_tuner"
-        android:title="@string/statusbar_icons_title"
-        android:summary="@string/statusbar_icons_summary">
-        <intent android:action="com.android.settings.action.STATUS_BAR_TUNER"/>
+    
+    <Preference ns0:key="statusbar_tuner" ns0:title="@string/statusbar_icons_title" ns0:summary="@string/statusbar_icons_summary">
+        <intent ns0:action="com.android.settings.action.STATUS_BAR_TUNER" />
     </Preference>
 </PreferenceScreen>

@@ -11,26 +11,26 @@
  * KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.android.settings.display;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.core.PreferenceControllerMixin;
+import androidx.preference.SwitchPreference;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.text.TextUtils;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.internal.view.RotationPolicy;
 import com.android.settings.R;
-import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settings.core.TogglePreferenceController;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import com.android.settingslib.core.lifecycle.LifecycleObserver;
 import com.android.settingslib.core.lifecycle.events.OnPause;
 import com.android.settingslib.core.lifecycle.events.OnResume;
-
-import com.yasp.settings.preferences.SystemSettingSwitchPreference;
 
 public class AutoRotatePreferenceController extends TogglePreferenceController implements
         PreferenceControllerMixin, Preference.OnPreferenceChangeListener, LifecycleObserver,
@@ -40,7 +40,7 @@ public class AutoRotatePreferenceController extends TogglePreferenceController i
 
     private final MetricsFeatureProvider mMetricsFeatureProvider;
     private Preference mPreference;
-    private SystemSettingSwitchPreference mFloatingPref;
+    private SwitchPreference mFloatingPref;
     private RotationPolicy.RotationPolicyListener mRotationPolicyListener;
 
     public AutoRotatePreferenceController(Context context, String key) {

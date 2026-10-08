@@ -1,117 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2008 The Android Open Source Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:key="lock_settings_picker">
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_off" ns0:title="@string/unlock_set_unlock_off_title" ns0:icon="@drawable/ic_lock_none" ns0:persistent="false" />
 
-          http://www.apache.org/licenses/LICENSE-2.0
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_none" ns0:title="@string/unlock_set_unlock_none_title" ns0:icon="@drawable/ic_lock_swipe" ns0:persistent="false" />
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_pattern" ns0:title="@string/unlock_set_unlock_pattern_title" ns0:icon="@drawable/ic_pattern" ns0:persistent="false" />
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-                  xmlns:settings="http://schemas.android.com/apk/res-auto"
-        android:key="lock_settings_picker">
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_pin" ns0:title="@string/unlock_set_unlock_pin_title" ns0:icon="@drawable/ic_lock_pin" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_off"
-            android:title="@string/unlock_set_unlock_off_title"
-            android:icon="@drawable/ic_lock_none"
-            android:persistent="false"/>
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_password" ns0:title="@string/unlock_set_unlock_password_title" ns0:icon="@drawable/ic_password" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_none"
-            android:title="@string/unlock_set_unlock_none_title"
-            android:icon="@drawable/ic_lock_swipe"
-            android:persistent="false"/>
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_set_managed" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_pattern"
-            android:title="@string/unlock_set_unlock_pattern_title"
-            android:icon="@drawable/ic_pattern"
-            android:persistent="false"/>
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_skip_fingerprint" ns0:title="@string/fingerprint_unlock_skip_fingerprint" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_pin"
-            android:title="@string/unlock_set_unlock_pin_title"
-            android:icon="@drawable/ic_lock_pin"
-            android:persistent="false"/>
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_skip_face" ns0:title="@string/face_unlock_skip_face" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_password"
-            android:title="@string/unlock_set_unlock_password_title"
-            android:icon="@drawable/ic_password"
-            android:persistent="false"/>
+    <com.android.settingslib.RestrictedPreference ns0:key="unlock_skip_biometrics" ns0:title="@string/biometrics_unlock_skip_biometrics" ns0:persistent="false" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_set_managed"
-            android:persistent="false"/>
+    <PreferenceCategory ns0:key="unlock_settings" ns0:title="@string/lock_settings_screen_lock_settings_title" ns1:isPreferenceVisible="false">
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_skip_fingerprint"
-            android:title="@string/fingerprint_unlock_skip_fingerprint"
-            android:persistent="false"/>
+        
+        <SwitchPreferenceCompat ns0:key="visiblepattern" ns0:title="@string/lockpattern_settings_enable_visible_pattern_title" />
 
-    <com.android.settingslib.RestrictedPreference
-            android:key="unlock_skip_face"
-            android:title="@string/face_unlock_skip_face"
-            android:persistent="false"/>
+        
+        <SwitchPreferenceCompat ns0:key="auto_pin_confirm" ns0:title="@string/lock_screen_auto_pin_confirm_title" ns0:summary="@string/lock_screen_auto_pin_confirm_summary" />
 
-    <com.android.settingslib.RestrictedPreference
-        android:key="unlock_skip_biometrics"
-        android:title="@string/biometrics_unlock_skip_biometrics"
-        android:persistent="false"/>
-
-    <PreferenceCategory
-        android:key="unlock_settings"
-        android:title="@string/lock_settings_screen_lock_settings_title"
-        settings:isPreferenceVisible="false">
-
-        <!-- available in pattern -->
-        <SwitchPreferenceCompat
-            android:key="visiblepattern"
-            android:title="@string/lockpattern_settings_enable_visible_pattern_title" />
-
-        <!-- available in pin -->
-        <SwitchPreferenceCompat
-            android:key="auto_pin_confirm"
-            android:title="@string/lock_screen_auto_pin_confirm_title"
-            android:summary="@string/lock_screen_auto_pin_confirm_summary" />
-
-        <SwitchPreferenceCompat
-            android:key="enhancedPinPrivacy"
-            android:title="@string/lockpattern_settings_enhanced_pin_privacy_title"
-            android:summary="@string/lockpattern_settings_enhanced_pin_privacy_summary" />
+        <SwitchPreferenceCompat ns0:key="enhancedPinPrivacy" ns0:title="@string/lockpattern_settings_enhanced_pin_privacy_title" ns0:summary="@string/lockpattern_settings_enhanced_pin_privacy_summary" />
 
 
-        <!-- available in pin/pattern/password -->
-        <com.android.settings.security.screenlock.ProtectedTimeoutListPreference
-            android:key="lock_after_timeout"
-            android:title="@string/lock_after_timeout"
-            android:summary="@string/summary_placeholder"
-            android:entries="@array/lock_after_timeout_entries"
-            android:entryValues="@array/lock_after_timeout_values" />
+        
+        <com.android.settings.security.screenlock.ProtectedTimeoutListPreference ns0:key="lock_after_timeout" ns0:title="@string/lock_after_timeout" ns0:summary="@string/summary_placeholder" ns0:entries="@array/lock_after_timeout_entries" ns0:entryValues="@array/lock_after_timeout_values" />
 
-        <!-- available in pin/pattern/password -->
-        <SwitchPreferenceCompat
-            android:key="power_button_instantly_locks"
-            android:title="@string/lockpattern_settings_enable_power_button_instantly_locks" />
+        
+        <SwitchPreferenceCompat ns0:key="power_button_instantly_locks" ns0:title="@string/lockpattern_settings_enable_power_button_instantly_locks" />
 
-        <!-- Always available -->
-        <com.yasp.settings.preferences.SecureSettingSwitchPreference
-            android:key="qstile_requires_unlocking"
-            android:title="@string/qstile_requires_unlocking_title"
-            android:summary="@string/qstile_requires_unlocking_summary"
-            android:defaultValue="true"/>
-    </PreferenceCategory>
+        
+        </PreferenceCategory>
 
-    <com.android.settingslib.widget.FooterPreference
-        android:key="lock_settings_footer"
-        settings:searchable="false"/>
+    <com.android.settingslib.widget.FooterPreference ns0:key="lock_settings_footer" ns1:searchable="false" />
 
 </PreferenceScreen>

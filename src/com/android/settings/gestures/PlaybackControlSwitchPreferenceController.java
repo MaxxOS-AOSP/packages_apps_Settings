@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 
-package com.android.settings.gestures;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.core.PreferenceControllerMixin;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import android.content.Context;
 import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
-import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.widget.MainSwitchPreference;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 public class PlaybackControlSwitchPreferenceController extends AbstractPreferenceController
         implements PreferenceControllerMixin, OnCheckedChangeListener {
@@ -39,7 +39,7 @@ public class PlaybackControlSwitchPreferenceController extends AbstractPreferenc
 
     private final Context mContext;
     private MainSwitchPreference mSwitch;
-    private CustomSeekBarPreference mDelayPref;
+    private SeekBarPreference mDelayPref;
 
     public PlaybackControlSwitchPreferenceController(Context context) {
         super(context);

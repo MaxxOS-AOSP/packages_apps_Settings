@@ -16,6 +16,7 @@
 
 package com.android.settings.gestures;
 
+import com.android.settings.accessibility.DisplayWakeGesturePageController;
 import android.content.Context;
 import android.provider.Settings;
 

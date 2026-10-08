@@ -13,8 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.gaming;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.ListPreference;
+import androidx.preference.SeekBarPreference;
 import static com.android.internal.display.RefreshRateSettingsUtils.DEFAULT_REFRESH_RATE;
 import static com.android.internal.display.RefreshRateSettingsUtils.findHighestRefreshRateAmongAllDisplays;
 
@@ -23,15 +29,9 @@ import android.content.Context;
 import android.hardware.display.ColorDisplayManager;
 import android.provider.Settings;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
 import com.android.settings.display.ColorModeUtils;
 import com.android.settingslib.core.AbstractPreferenceController;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
-import com.yasp.settings.preferences.SystemSettingListPreference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,10 +51,10 @@ public class GamingModeController extends AbstractPreferenceController
     public static final String GAMING_MODE_LTPO_FEATURES_KEY = "gaming_mode_ltpo_features";
     public static final String GAMING_MODE_COLOR_KEY = "gaming_mode_color_mode";
 
-    private CustomSeekBarPreference mMediaVolume;
-    private CustomSeekBarPreference mBrightnessLevel;
-    private SystemSettingListPreference mRingerMode;
-    private SystemSettingListPreference mColorMode;
+    private SeekBarPreference mMediaVolume;
+    private SeekBarPreference mBrightnessLevel;
+    private ListPreference mRingerMode;
+    private ListPreference mColorMode;
 
     public GamingModeController(Context context) {
         super(context);

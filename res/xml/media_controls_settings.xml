@@ -1,73 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (C) 2020 The Android Open Source Project
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:title="@string/media_controls_title">
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:title="@string/media_controls_title">
+    <SwitchPreferenceCompat ns0:key="qs_media_resumption" ns0:title="@string/media_controls_resume_title" ns0:summary="@string/media_controls_resume_description" ns1:keywords="@string/keywords_media_controls" ns1:controller="com.android.settings.sound.MediaControlsPreferenceController" />
 
-    <SwitchPreferenceCompat
-        android:key="qs_media_resumption"
-        android:title="@string/media_controls_resume_title"
-        android:summary="@string/media_controls_resume_description"
-        app:keywords="@string/keywords_media_controls"
-        app:controller="com.android.settings.sound.MediaControlsPreferenceController" />
+    <SwitchPreferenceCompat ns0:key="media_controls_lock_screen" ns0:title="@string/media_controls_lockscreen_title" ns0:summary="@string/media_controls_lockscreen_description" ns1:controller="com.android.settings.sound.MediaControlsLockScreenPreferenceController" />
 
-    <SwitchPreferenceCompat
-        android:key="media_controls_lock_screen"
-        android:title="@string/media_controls_lockscreen_title"
-        android:summary="@string/media_controls_lockscreen_description"
-        app:controller="com.android.settings.sound.MediaControlsLockScreenPreferenceController" />
+    <SwitchPreferenceCompat ns0:key="media_controls_ripple" ns0:title="@string/media_controls_ripple_title" ns1:controller="com.android.settings.sound.MediaControlsRippleController" />
 
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="media_controls_always_show_time"
-        android:title="@string/media_controls_always_show_time_title"
-        android:summary="@string/media_controls_always_show_time_summary"
-        android:defaultValue="false" />
+    <SwitchPreferenceCompat ns0:key="media_controls_turbulence" ns0:title="@string/media_controls_turbulence_title" ns1:controller="com.android.settings.sound.MediaControlsTurbulenceController" />
 
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="media_controls_time_as_next"
-        android:title="@string/media_controls_time_as_next_title"
-        android:summary="@string/media_controls_time_as_next_summary"
-        android:dependency="media_controls_always_show_time"
-        android:defaultValue="false" />
-
-    <com.yasp.settings.preferences.SecureSettingSeekBarPreference
-        android:key="media_controls_actions"
-        android:title="@string/media_controls_actions_title"
-        android:summary="@string/media_controls_actions_summary"
-        android:max="5"
-        android:min="0"
-        android:defaultValue="5" />
-
-    <SwitchPreferenceCompat
-        android:key="media_controls_ripple"
-        android:title="@string/media_controls_ripple_title"
-        app:controller="com.android.settings.sound.MediaControlsRippleController" />
-
-    <SwitchPreferenceCompat
-        android:key="media_controls_turbulence"
-        android:title="@string/media_controls_turbulence_title"
-        app:controller="com.android.settings.sound.MediaControlsTurbulenceController" />
-
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="media_controls_squiggle"
-        android:title="@string/media_controls_squiggle_title"
-        android:summary="@string/media_controls_squiggle_summary"
-        android:defaultValue="false" />
-
-</PreferenceScreen>
+    </PreferenceScreen>

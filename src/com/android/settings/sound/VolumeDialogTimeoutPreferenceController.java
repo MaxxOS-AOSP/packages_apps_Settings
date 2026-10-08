@@ -12,18 +12,17 @@
  * permissions and limitations under the License.
  */
 
-package com.android.settings.sound;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SeekBarPreference;
 import android.content.Context;
 import android.provider.Settings;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
 import com.android.settingslib.core.AbstractPreferenceController;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 /**
  * A simple preference controller for volume dialog timeout
@@ -33,7 +32,7 @@ public class VolumeDialogTimeoutPreferenceController extends AbstractPreferenceC
 
     private static final String KEY = "volume_dialog_dismiss_timeout";
 
-    private CustomSeekBarPreference mDialogTimeoutSeekBar;
+    private SeekBarPreference mDialogTimeoutSeekBar;
 
     public VolumeDialogTimeoutPreferenceController(Context context) {
         super(context);
@@ -52,7 +51,7 @@ public class VolumeDialogTimeoutPreferenceController extends AbstractPreferenceC
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        mDialogTimeoutSeekBar = (CustomSeekBarPreference) screen.findPreference(KEY);
+        mDialogTimeoutSeekBar = (SeekBarPreference) screen.findPreference(KEY);
         mDialogTimeoutSeekBar.setValue(Settings.Secure.getInt(
                 mContext.getContentResolver(), KEY, 3000) / 1000 /* ms to sec */);
         mDialogTimeoutSeekBar.setOnPreferenceChangeListener(this);

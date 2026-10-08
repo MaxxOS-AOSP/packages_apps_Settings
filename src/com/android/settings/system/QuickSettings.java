@@ -13,8 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.system;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.EditTextPreference;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -25,21 +32,11 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
-import com.yasp.settings.preferences.SecureSettingMasterSwitchPreference;
-import com.yasp.settings.preferences.SystemSettingEditTextPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,10 +53,10 @@ public class QuickSettings extends DashboardFragment implements
     private static final String SHADE_BLUR_RADIUS = "shade_blur_radius";
     private static final String SHADE_SCRIM_ALPHA = "shade_scrim_alpha";
 
-    private SystemSettingEditTextPreference mFooterString;
-    private SecureSettingMasterSwitchPreference mBrightnessSlider;
-    private CustomSeekBarPreference mShadeBlurRadiusPref;
-    private CustomSeekBarPreference mShadeScrimAlphaPref;
+    private EditTextPreference mFooterString;
+    private SwitchPreference mBrightnessSlider;
+    private SeekBarPreference mShadeBlurRadiusPref;
+    private SeekBarPreference mShadeScrimAlphaPref;
 
     @Override
     protected int getPreferenceScreenResId() {
@@ -73,7 +70,7 @@ public class QuickSettings extends DashboardFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mBrightnessSlider = (SecureSettingMasterSwitchPreference)
+        mBrightnessSlider = (SwitchPreference)
                 findPreference(BRIGHTNESS_SLIDER);
         mBrightnessSlider.setOnPreferenceChangeListener(this);
         boolean enabled = Settings.Secure.getInt(resolver,
@@ -122,7 +119,7 @@ public class QuickSettings extends DashboardFragment implements
                 SHADE_SCRIM_ALPHA, defScrimAlpha, UserHandle.USER_CURRENT);
         mShadeScrimAlphaPref.setValue(shadeScrimAlpha);
 
-        mFooterString = (SystemSettingEditTextPreference) findPreference(QS_FOOTER_TEXT_STRING);
+        mFooterString = (EditTextPreference) findPreference(QS_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
         String footerString = Settings.System.getString(resolver,
                 QS_FOOTER_TEXT_STRING);

@@ -1,135 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  Copyright (C) 2017 The Android Open Source Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:key="gesture_settings_screen" ns0:title="@string/gesture_preference_title">
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+    <Preference ns0:key="gesture_system_navigation_input_summary" ns0:title="@string/system_navigation_title" ns0:fragment="com.android.settings.gestures.SystemNavigationGestureSettings" ns1:controller="com.android.settings.gestures.SystemNavigationPreferenceController" ns1:keywords="@string/keywords_system_navigation" />
 
-       http://www.apache.org/licenses/LICENSE-2.0
+    <Preference ns0:key="gesture_power_menu_summary" ns0:title="@string/power_menu_setting_name" ns0:fragment="com.android.settings.gestures.PowerMenuSettings" ns1:controller="com.android.settings.gestures.PowerMenuPreferenceController" />
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
+    <SwitchPreferenceCompat ns0:key="gesture_double_twist" ns0:title="@string/double_twist_for_camera_mode_title" ns0:summary="@string/double_twist_for_camera_mode_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.DoubleTwistPreferenceController" />
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto"
-    android:key="gesture_settings_screen"
-    android:title="@string/gesture_preference_title">
+    <SwitchPreferenceCompat ns0:key="gesture_swipe_down_fingerprint" ns0:title="@string/fingerprint_swipe_for_notifications_title" ns0:summary="@string/fingerprint_swipe_for_notifications_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.SwipeToNotificationPreferenceController" />
 
-    <Preference
-        android:key="gesture_system_navigation_input_summary"
-        android:title="@string/system_navigation_title"
-        android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
-        settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController"
-        settings:keywords="@string/keywords_system_navigation" />
+    <SwitchPreferenceCompat ns0:key="swipe_to_screenshot" ns0:title="@string/three_finger_gesture" ns0:summary="@string/three_finger_gesture_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
 
-    <Preference
-        android:key="gesture_power_menu_summary"
-        android:title="@string/power_menu_setting_name"
-        android:fragment="com.android.settings.gestures.PowerMenuSettings"
-        settings:controller="com.android.settings.gestures.PowerMenuPreferenceController" />
+    <SwitchPreferenceCompat ns0:key="gesture_screen_off_udfps" ns0:title="@string/ambient_display_screen_off_udfps_title" ns0:summary="@string/ambient_display_screen_off_udfps_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
 
-    <SwitchPreferenceCompat
-        android:key="gesture_double_twist"
-        android:title="@string/double_twist_for_camera_mode_title"
-        android:summary="@string/double_twist_for_camera_mode_summary"
-        settings:keywords="@string/keywords_gesture"
-        settings:controller="com.android.settings.gestures.DoubleTwistPreferenceController" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_tap" ns0:title="@string/ambient_display_tap_screen_title" ns0:fragment="com.android.settings.gestures.TapScreenGestureSettings" ns1:controller="com.android.settings.gestures.TapScreenGesturePreferenceController" />
 
-    <SwitchPreferenceCompat
-        android:key="gesture_swipe_down_fingerprint"
-        android:title="@string/fingerprint_swipe_for_notifications_title"
-        android:summary="@string/fingerprint_swipe_for_notifications_summary"
-        settings:keywords="@string/keywords_gesture"
-        settings:controller="com.android.settings.gestures.SwipeToNotificationPreferenceController" />
+    
+    <SwitchPreferenceCompat ns0:key="tap_to_wake" ns0:title="@string/ambient_display_title" ns0:summary="@string/tap_to_wake_summary" />
 
-    <SwitchPreferenceCompat
-        android:key="swipe_to_screenshot"
-        android:title="@string/three_finger_gesture"
-        android:summary="@string/three_finger_gesture_summary"
-        settings:keywords="@string/keywords_gesture"
-        settings:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_double_tap_screen_input_summary" ns0:title="@string/ambient_display_title" ns0:fragment="com.android.settings.gestures.DoubleTapScreenSettings" ns1:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController" />
 
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="screenshot_key_gesture_enabled"
-        android:title="@string/screenshot_key_gesture_enabled"
-        android:summary="@string/screenshot_key_gesture_enabled_summary"
-        android:defaultValue="true"
-        settings:keywords="@string/keywords_gesture" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_pick_up_input_summary" ns0:title="@string/ambient_display_pickup_title" ns0:fragment="com.android.settings.gestures.PickupGestureSettings" ns1:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
 
-    <com.yasp.settings.preferences.SecureSettingSwitchPreference
-        android:key="volume_up_down_mute_gesture"
-        android:title="@string/volume_up_down_mute_gesture"
-        android:summary="@string/volume_up_down_mute_gesture_summary"
-        android:defaultValue="false"
-        settings:keywords="@string/keywords_gesture" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_one_handed" ns0:title="@string/one_handed_title" ns0:fragment="com.android.settings.gestures.OneHandedSettings" ns1:controller="com.android.settings.gestures.OneHandedEnablePreferenceController" />
 
-    <SwitchPreferenceCompat
-        android:key="gesture_screen_off_udfps"
-        android:title="@string/ambient_display_screen_off_udfps_title"
-        android:summary="@string/ambient_display_screen_off_udfps_summary"
-        settings:keywords="@string/keywords_gesture"
-        settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="quick_mute_summary" ns0:title="@string/quick_mute_title" ns0:fragment="com.android.settings.gestures.QuickMuteGestureSettings" ns1:controller="com.android.settings.gestures.QuickMuteParentPreferenceController" />
 
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_tap"
-        android:title="@string/ambient_display_tap_screen_title"
-        android:fragment="com.android.settings.gestures.TapScreenGestureSettings"
-        settings:controller="com.android.settings.gestures.TapScreenGesturePreferenceController" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="playback_control_summary" ns0:title="@string/gesture_playback_control_screen_title" ns0:fragment="com.android.settings.gestures.PlaybackControlGestureSettings" ns1:controller="com.android.settings.gestures.PlaybackControlParentPreferenceController" />
 
-    <!-- non sensor dt2w -->
-    <SwitchPreferenceCompat
-        android:key="tap_to_wake"
-        android:title="@string/ambient_display_title"
-        android:summary="@string/tap_to_wake_summary" />
+    <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_prevent_ringing_summary" ns0:title="@string/gesture_prevent_ringing_screen_title" ns0:fragment="com.android.settings.gestures.PreventRingingGestureSettings" ns1:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
 
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_double_tap_screen_input_summary"
-        android:title="@string/ambient_display_title"
-        android:fragment="com.android.settings.gestures.DoubleTapScreenSettings"
-        settings:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_pick_up_input_summary"
-        android:title="@string/ambient_display_pickup_title"
-        android:fragment="com.android.settings.gestures.PickupGestureSettings"
-        settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_one_handed"
-        android:title="@string/one_handed_title"
-        android:fragment="com.android.settings.gestures.OneHandedSettings"
-        settings:controller="com.android.settings.gestures.OneHandedEnablePreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="quick_mute_summary"
-        android:title="@string/quick_mute_title"
-        android:fragment="com.android.settings.gestures.QuickMuteGestureSettings"
-        settings:controller="com.android.settings.gestures.QuickMuteParentPreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="playback_control_summary"
-        android:title="@string/gesture_playback_control_screen_title"
-        android:fragment="com.android.settings.gestures.PlaybackControlGestureSettings"
-        settings:controller="com.android.settings.gestures.PlaybackControlParentPreferenceController" />
-
-    <com.android.settingslib.PrimarySwitchPreference
-        android:key="gesture_prevent_ringing_summary"
-        android:title="@string/gesture_prevent_ringing_screen_title"
-        android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
-        settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
-
-    <!-- Volume key cursor control  -->
-    <com.yasp.settings.preferences.SystemSettingListPreference
-        android:key="volume_key_cursor_control"
-        android:title="@string/volume_key_cursor_control_title"
-        android:summary="%s"
-        android:entries="@array/volume_key_cursor_control_entries"
-        android:entryValues="@array/volume_key_cursor_control_values"
-        android:defaultValue="0" />
-</PreferenceScreen>
+    
+    </PreferenceScreen>

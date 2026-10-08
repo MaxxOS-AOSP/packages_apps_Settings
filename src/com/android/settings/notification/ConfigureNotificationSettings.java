@@ -14,8 +14,20 @@
  * limitations under the License.
  */
 
-package com.android.settings.notification;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+import com.android.settings.dashboard.DashboardFragment.OnActivityResultListener;
+import com.android.settings.notification.NotificationAssistantPreferenceController;
+import com.android.settings.notification.app.NotificationPreferenceController;
+import androidx.preference.Preference;
+import com.android.settings.notification.NotificationPreferenceController;
+import androidx.preference.ListPreference;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import static android.app.admin.DevicePolicyResources.Strings.Settings.WORK_PROFILE_LOCK_SCREEN_REDACT_NOTIFICATION_SUMMARY;
 import static android.app.admin.DevicePolicyResources.Strings.Settings.WORK_PROFILE_LOCK_SCREEN_REDACT_NOTIFICATION_TITLE;
 
@@ -35,11 +47,6 @@ import android.provider.Settings;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.util.yaap.YaapUtils;
 import com.android.settings.R;
@@ -49,11 +56,6 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
-import com.yasp.settings.preferences.SystemSettingListPreference;
-import com.yasp.settings.preferences.SystemSettingSwitchPreference;
-import com.yasp.settings.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,9 +88,9 @@ public class ConfigureNotificationSettings extends DashboardFragment implements
     private NotificationAssistantPreferenceController mNotificationAssistantPreferenceController;
 
     // YASP Import
-    private SystemSettingListPreference mFlashOnCall;
-    private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
-    private CustomSeekBarPreference mFlashOnCallRate;
+    private ListPreference mFlashOnCall;
+    private SwitchPreference mFlashOnCallIgnoreDND;
+    private SeekBarPreference mFlashOnCallRate;
     private SwitchPreferenceCompat mHeadsUp;
 
     private final HeadsUpObserver mHeadsUpObserver = new HeadsUpObserver();
@@ -128,21 +130,21 @@ public class ConfigureNotificationSettings extends DashboardFragment implements
                     findPreference(FLASH_ON_CALL_OPTIONS);
             prefScreen.removePreference(flashOnCallCategory);
         } else {
-            mFlashOnCallRate = (CustomSeekBarPreference)
+            mFlashOnCallRate = (SeekBarPreference)
                     findPreference(PREF_FLASH_ON_CALL_RATE);
             int value = Settings.System.getInt(resolver,
                     Settings.System.FLASHLIGHT_ON_CALL_RATE, 1);
             mFlashOnCallRate.setValue(value);
             mFlashOnCallRate.setOnPreferenceChangeListener(this);
 
-            mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
+            mFlashOnCallIgnoreDND = (SwitchPreference)
                     findPreference(PREF_FLASH_ON_CALL_DND);
             value = Settings.System.getInt(resolver,
                     Settings.System.FLASHLIGHT_ON_CALL, 0);
             mFlashOnCallIgnoreDND.setVisible(value > 1);
             mFlashOnCallRate.setVisible(value != 0);
 
-            mFlashOnCall = (SystemSettingListPreference)
+            mFlashOnCall = (ListPreference)
                     findPreference(PREF_FLASH_ON_CALL);
             mFlashOnCall.setSummary(mFlashOnCall.getEntries()[value]);
             mFlashOnCall.setOnPreferenceChangeListener(this);

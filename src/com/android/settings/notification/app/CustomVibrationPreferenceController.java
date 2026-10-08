@@ -14,24 +14,27 @@
  * limitations under the License.
  */
 
-package com.android.settings.notification.app;
+package com.android.settings.accessibility;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.core.PreferenceControllerMixin;
+import com.android.settings.notification.NotificationBackend;
+import com.android.settings.notification.app.NotificationPreferenceController;
+import com.android.settingslib.RestrictedSwitchPreference;
+import androidx.preference.Preference;
+import com.android.settings.notification.app.NotificationPreferenceController;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import android.content.Context;
 import android.content.res.Resources;
 import android.media.AudioAttributes;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-
-import com.android.settings.core.PreferenceControllerMixin;
-import com.android.settings.notification.NotificationBackend;
-import com.android.settingslib.RestrictedSwitchPreference;
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 public class CustomVibrationPreferenceController extends NotificationPreferenceController
         implements PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
@@ -53,9 +56,9 @@ public class CustomVibrationPreferenceController extends NotificationPreferenceC
     private final long[] mDefaultPattern;
 
     private RestrictedSwitchPreference mPreference;
-    private CustomSeekBarPreference mSeekBar1;
-    private CustomSeekBarPreference mSeekBar2;
-    private CustomSeekBarPreference mSeekBar3;
+    private SeekBarPreference mSeekBar1;
+    private SeekBarPreference mSeekBar2;
+    private SeekBarPreference mSeekBar3;
     private PreferenceCategory mBarsCategory;
 
     public CustomVibrationPreferenceController(Context context, NotificationBackend backend) {

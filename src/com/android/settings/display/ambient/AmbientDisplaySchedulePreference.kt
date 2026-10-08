@@ -27,7 +27,7 @@ import com.android.internal.util.yaap.AutoSettingConsts.MODE_TIME
 import com.android.internal.util.yaap.AutoSettingConsts.MODE_MIXED_SUNSET
 import com.android.internal.util.yaap.AutoSettingConsts.MODE_MIXED_SUNRISE
 import com.android.settings.R
-import com.android.settings.display.AODSchedule
+import com.android.settings.accessibility.AODSchedule
 import com.android.settingslib.metadata.PreferenceAvailabilityProvider
 import com.android.settingslib.metadata.preferencesapi.preconditions.PreconditionStability
 import com.android.settingslib.metadata.PreferenceLifecycleContext

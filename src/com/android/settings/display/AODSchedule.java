@@ -13,8 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.display;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.ListPreference;
 import static com.android.internal.util.yaap.AutoSettingConsts.MODE_DISABLED;
 import static com.android.internal.util.yaap.AutoSettingConsts.MODE_NIGHT;
 import static com.android.internal.util.yaap.AutoSettingConsts.MODE_TIME;
@@ -30,16 +36,11 @@ import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.widget.TimePicker;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.yasp.settings.preferences.SecureSettingListPreference;
 
 import java.time.format.DateTimeFormatter;
 import java.time.LocalTime;
@@ -53,7 +54,7 @@ public class AODSchedule extends DashboardFragment implements
     private static final String SINCE_PREF_KEY = "doze_always_on_auto_since";
     private static final String TILL_PREF_KEY = "doze_always_on_auto_till";
 
-    private SecureSettingListPreference mModePref;
+    private ListPreference mModePref;
     private Preference mSincePref;
     private Preference mTillPref;
 
@@ -76,7 +77,7 @@ public class AODSchedule extends DashboardFragment implements
 
         int mode = Settings.Secure.getIntForUser(resolver,
                 MODE_KEY, MODE_DISABLED, UserHandle.USER_CURRENT);
-        mModePref = (SecureSettingListPreference) findPreference(MODE_KEY);
+        mModePref = (ListPreference) findPreference(MODE_KEY);
         mModePref.setValue(String.valueOf(mode));
         mModePref.setSummary(mModePref.getEntry());
         mModePref.setOnPreferenceChangeListener(this);

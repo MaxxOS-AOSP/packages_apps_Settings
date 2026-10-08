@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-package com.android.settings.sound;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.Preference;
+import androidx.preference.SeekBarPreference;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.Settings;
-
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 /**
  * volume steps settings under sound
@@ -54,12 +52,12 @@ public class VolumeSteps extends DashboardFragment implements OnPreferenceChange
         final int count = screen.getPreferenceCount();
         for (int i = 0; i < count; i++) {
             Preference pref = screen.getPreference(i);
-            if (!(pref instanceof CustomSeekBarPreference))
+            if (!(pref instanceof SeekBarPreference))
                 continue;
             String key = pref.getKey();
             final int def = Settings.System.getInt(resolver, "default_" + key, 15);
             final int value = Settings.System.getInt(resolver, key, def);
-            CustomSeekBarPreference sbPref = (CustomSeekBarPreference) pref;
+            SeekBarPreference sbPref = (SeekBarPreference) pref;
             sbPref.setDefaultValue(def);
             sbPref.setValue(value);
             sbPref.setOnPreferenceChangeListener(this);
@@ -68,7 +66,7 @@ public class VolumeSteps extends DashboardFragment implements OnPreferenceChange
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (!(preference instanceof CustomSeekBarPreference))
+        if (!(preference instanceof SeekBarPreference))
             return false;
         Settings.System.putInt(getActivity().getContentResolver(),
                 preference.getKey(), (Integer) newValue);

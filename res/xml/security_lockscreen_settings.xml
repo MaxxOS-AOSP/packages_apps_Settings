@@ -1,276 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2017 The Android Open Source Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/apk/res-auto" ns0:key="lockscreen_from_display_settings" ns0:title="@string/lockscreen_settings_title">
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+    <PreferenceCategory ns0:key="lockscreen_what_to_show" ns0:title="@string/lockscreen_settings_what_to_show_category">
+        <com.android.settings.RestrictedListPreference ns0:key="security_setting_lock_screen_notif" ns0:title="@string/lock_screen_notifications_title" ns0:summary="@string/summary_placeholder" ns1:keywords="@string/keywords_lock_screen_notif" />
 
-          http://www.apache.org/licenses/LICENSE-2.0
+        <Preference ns0:key="security_lock_screen_notifications_page" ns0:title="@string/lock_screen_notifs_title" ns0:fragment="com.android.settings.notification.LockScreenNotificationsPreferencePageFragment" ns1:controller="com.android.settings.notification.LockScreenNotificationsPreferencePageController" />
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
+        <SwitchPreferenceCompat ns0:key="security_display_lockscreen_bypass" ns0:title="@string/lockscreen_bypass_title" ns0:summary="@string/lockscreen_bypass_summary" ns1:searchable="false" ns1:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenBypassPreferenceController" />
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto"
-    android:key="lockscreen_from_display_settings"
-    android:title="@string/lockscreen_settings_title">
+        <com.android.settingslib.PrimarySwitchPreference ns0:key="widgets_on_lockscreen" ns0:title="@string/widgets_on_lockscreen_title" ns0:fragment="com.android.settings.communal.WidgetsOnLockscreenFragment" ns1:controller="com.android.settings.display.WidgetsOnLockscreenPreferenceController" />
 
-    <PreferenceCategory
-        android:key="lockscreen_what_to_show"
-        android:title="@string/lockscreen_settings_what_to_show_category">
-        <com.android.settings.RestrictedListPreference
-            android:key="security_setting_lock_screen_notif"
-            android:title="@string/lock_screen_notifications_title"
-            android:summary="@string/summary_placeholder"
-            settings:keywords="@string/keywords_lock_screen_notif"/>
+        <com.android.settingslib.RestrictedSwitchPreference ns0:key="security_lockscreen_add_users_when_locked" ns0:title="@string/user_add_on_lockscreen_menu" ns1:controller="com.android.settings.users.AddUserWhenLockedPreferenceController" />
 
-        <Preference
-            android:key="security_lock_screen_notifications_page"
-            android:title="@string/lock_screen_notifs_title"
-            android:fragment="com.android.settings.notification.LockScreenNotificationsPreferencePageFragment"
-            settings:controller="com.android.settings.notification.LockScreenNotificationsPreferencePageController" />
+        <com.android.settingslib.RestrictedPreference ns0:key="owner_info_settings" ns0:title="@string/owner_info_settings_title" ns0:summary="@string/owner_info_settings_summary" />
 
-        <SwitchPreferenceCompat
-            android:key="security_display_lockscreen_bypass"
-            android:title="@string/lockscreen_bypass_title"
-            android:summary="@string/lockscreen_bypass_summary"
-            settings:searchable="false"
-            settings:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenBypassPreferenceController" />
+        
+        <SwitchPreferenceCompat ns0:key="security_setting_lockdown_enabled" ns0:title="@string/lockdown_settings_title" ns0:summary="@string/lockdown_settings_summary" ns1:controller="com.android.settings.security.LockdownButtonPreferenceController" />
 
-        <com.android.settingslib.PrimarySwitchPreference
-            android:key="widgets_on_lockscreen"
-            android:title="@string/widgets_on_lockscreen_title"
-            android:fragment="com.android.settings.communal.WidgetsOnLockscreenFragment"
-            settings:controller="com.android.settings.display.WidgetsOnLockscreenPreferenceController"/>
+        <SwitchPreferenceCompat ns0:key="lockscreen_privacy_wallet_switch" ns0:title="@string/lockscreen_privacy_wallet_setting_toggle" ns0:summary="@string/lockscreen_privacy_wallet_summary" ns1:controller="com.android.settings.display.WalletPrivacyPreferenceController" />
 
-        <com.android.settingslib.RestrictedSwitchPreference
-            android:key="security_lockscreen_add_users_when_locked"
-            android:title="@string/user_add_on_lockscreen_menu"
-            settings:controller="com.android.settings.users.AddUserWhenLockedPreferenceController" />
+        <SwitchPreferenceCompat ns0:key="lock_screen_show_qr_scanner" ns0:title="@string/lockscreen_privacy_qr_code_scanner_setting_toggle" ns0:summary="@string/lockscreen_privacy_qr_code_scanner_summary" ns1:controller="com.android.settings.display.QRCodeScannerPreferenceController" />
 
-        <com.android.settingslib.RestrictedPreference
-            android:key="owner_info_settings"
-            android:title="@string/owner_info_settings_title"
-            android:summary="@string/owner_info_settings_summary" />
+        <SwitchPreferenceCompat ns0:key="lockscreen_privacy_controls_switch" ns0:title="@string/lockscreen_privacy_controls_setting_toggle" ns0:summary="@string/lockscreen_privacy_controls_summary" ns1:controller="com.android.settings.display.ControlsPrivacyPreferenceController" />
 
-        <!-- YASP lockscreen charging info -->
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_battery_info"
-            android:title="@string/lockscreen_battery_info_title"
-            android:summary="@string/lockscreen_battery_info_summary"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="lockscreen_trivial_controls_switch" ns0:title="@string/lockscreen_trivial_controls_setting_toggle" ns0:summary="@string/lockscreen_trivial_controls_summary" ns1:controller="com.android.settings.display.ControlsTrivialPrivacyPreferenceController" />
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_charging_time"
-            android:title="@string/lockscreen_charging_time_title"
-            android:summary="@string/lockscreen_charging_time_summary"
-            android:defaultValue="true" />
+        
+        <Preference ns0:key="customizable_lock_screen_quick_affordances" ns0:title="@string/lockscreen_quick_affordances_title" ns0:summary="@string/summary_placeholder" ns1:controller="com.android.settings.display.CustomizableLockScreenQuickAffordancesPreferenceController" />
 
-        <SwitchPreferenceCompat
-            android:key="security_setting_lockdown_enabled"
-            android:title="@string/lockdown_settings_title"
-            android:summary="@string/lockdown_settings_summary"
-            settings:controller="com.android.settings.security.LockdownButtonPreferenceController" />
+        <SwitchPreferenceCompat ns0:key="lockscreen_double_line_clock_switch" ns0:title="@string/lockscreen_double_line_clock_setting_toggle" ns0:summary="@string/lockscreen_double_line_clock_summary" ns1:controller="com.android.settings.display.LockscreenClockPreferenceController" />
 
-        <SwitchPreferenceCompat
-            android:key="lockscreen_privacy_wallet_switch"
-            android:title="@string/lockscreen_privacy_wallet_setting_toggle"
-            android:summary="@string/lockscreen_privacy_wallet_summary"
-            settings:controller="com.android.settings.display.WalletPrivacyPreferenceController" />
-
-        <SwitchPreferenceCompat
-            android:key="lock_screen_show_qr_scanner"
-            android:title="@string/lockscreen_privacy_qr_code_scanner_setting_toggle"
-            android:summary="@string/lockscreen_privacy_qr_code_scanner_summary"
-            settings:controller="com.android.settings.display.QRCodeScannerPreferenceController" />
-
-        <SwitchPreferenceCompat
-            android:key="lockscreen_privacy_controls_switch"
-            android:title="@string/lockscreen_privacy_controls_setting_toggle"
-            android:summary="@string/lockscreen_privacy_controls_summary"
-            settings:controller="com.android.settings.display.ControlsPrivacyPreferenceController" />
-
-        <SwitchPreferenceCompat
-            android:key="lockscreen_trivial_controls_switch"
-            android:title="@string/lockscreen_trivial_controls_setting_toggle"
-            android:summary="@string/lockscreen_trivial_controls_summary"
-            settings:controller="com.android.settings.display.ControlsTrivialPrivacyPreferenceController"/>
-
-        <!-- Shortcuts -->
-        <Preference
-            android:key="customizable_lock_screen_quick_affordances"
-            android:title="@string/lockscreen_quick_affordances_title"
-            android:summary="@string/summary_placeholder"
-            settings:controller="com.android.settings.display.CustomizableLockScreenQuickAffordancesPreferenceController" />
-
-        <SwitchPreferenceCompat
-            android:key="lockscreen_double_line_clock_switch"
-            android:title="@string/lockscreen_double_line_clock_setting_toggle"
-            android:summary="@string/lockscreen_double_line_clock_summary"
-            settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
-
-        <com.yasp.settings.preferences.SystemSettingListPreference
-            android:key="lockscreen_weather_provider"
-            android:defaultValue="1"
-            android:title="@string/lockscreen_weather_title"
-            android:summary="%s"
-            android:entries="@array/lockscreen_weather_provider_entries"
-            android:entryValues="@array/lockscreen_weather_provider_values"  />
-
-        <Preference
-            android:key="lockscreen_weather_prefs"
-            android:title="@string/weather_settings_title"
-            android:summary="@string/weather_settings_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="org.omnirom.omnijaws"
-                android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
+        <Preference ns0:key="lockscreen_weather_prefs" ns0:title="@string/weather_settings_title" ns0:summary="@string/weather_settings_summary">
+            <intent ns0:action="android.intent.action.MAIN" ns0:targetPackage="org.omnirom.omnijaws" ns0:targetClass="org.omnirom.omnijaws.SettingsActivity" />
         </Preference>
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_style"
-            android:defaultValue="false"
-            android:title="@string/lockscreen_weather_layout_title"
-            android:summary="@string/lockscreen_weather_layout_summary" />
+        </PreferenceCategory>
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_location"
-            android:defaultValue="false"
-            android:title="@string/lockscreen_weather_location_title"
-            android:summary="@string/lockscreen_weather_location_summary" />
+    <PreferenceCategory ns0:key="ambient_display_category_when_to_show" ns0:title="@string/ambient_display_category_triggers" ns1:controller="com.android.settings.display.AmbientDisplayWhenToShowPreferenceController" ns0:order="1000">
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_text"
-            android:defaultValue="true"
-            android:title="@string/lockscreen_weather_text_title"
-            android:summary="@string/lockscreen_weather_text_summary" />
+        <com.android.settingslib.RestrictedSwitchPreference ns0:key="doze_on_charge" ns0:title="@string/doze_on_charge_title" ns0:summary="@string/doze_on_charge_summary" ns1:keywords="@string/keywords_always_show_time_info" ns1:controller="com.android.settings.display.DozeOnChargePreferenceController" ns1:userRestriction="no_ambient_display" />
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_wind_info"
-            android:defaultValue="true"
-            android:title="@string/lockscreen_weather_wind_info_title"
-            android:summary="@string/lockscreen_weather_wind_info_summary" />
+        <SwitchPreferenceCompat ns0:key="tap_to_wake" ns0:title="@string/ambient_display_title" ns0:summary="@string/tap_to_wake_summary" />
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_humidity_info"
-            android:defaultValue="true"
-            android:title="@string/lockscreen_weather_humidity_info_title"
-            android:summary="@string/lockscreen_weather_humidity_info_summary" />
+        <com.android.settingslib.PrimarySwitchPreference ns0:key="gesture_tap" ns0:title="@string/ambient_display_tap_screen_title" ns0:fragment="com.android.settings.gestures.TapScreenGestureSettings" ns1:searchable="false" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.TapScreenGesturePreferenceController" />
 
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_weather_click_updates"
-            android:defaultValue="false"
-            android:title="@string/lockscreen_weather_click_updates_title"
-            android:summaryOn="@string/lockscreen_weather_click_updates_summary_on"
-            android:summaryOff="@string/lockscreen_weather_click_updates_summary_off" />
+        <com.android.settingslib.PrimarySwitchPreference ns0:key="ambient_display_double_tap" ns0:title="@string/ambient_display_title" ns0:fragment="com.android.settings.gestures.DoubleTapScreenSettings" ns1:searchable="false" ns0:summary="@string/ambient_display_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController" />
+
+        <com.android.settingslib.PrimarySwitchPreference ns0:key="ambient_display_pick_up" ns0:title="@string/ambient_display_pickup_title" ns0:fragment="com.android.settings.gestures.PickupGestureSettings" ns1:searchable="false" ns0:summary="@string/ambient_display_pickup_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
+
+        <SwitchPreferenceCompat ns0:key="gesture_screen_off_udfps" ns0:title="@string/ambient_display_screen_off_udfps_title" ns0:summary="@string/ambient_display_screen_off_udfps_summary" ns1:keywords="@string/keywords_gesture" ns1:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
+
+        
+        <SwitchPreferenceCompat ns0:key="ambient_display_notification" ns0:title="@string/doze_enabled_title" ns0:summary="@string/doze_enabled_summary" ns1:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
+
+        
+        <Preference ns0:key="ambient_display_custom" ns0:title="@string/advanced_settings" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="ambient_display_category_when_to_show"
-        android:title="@string/ambient_display_category_triggers"
-        settings:controller="com.android.settings.display.AmbientDisplayWhenToShowPreferenceController"
-        android:order="1000">
+    
+    <PreferenceCategory ns0:key="security_setting_lock_screen_notif_work_header" ns0:title="@string/profile_section_header" ns0:order="1001" ns1:searchable="false">
 
-        <com.android.settingslib.RestrictedSwitchPreference
-            android:key="doze_on_charge"
-            android:title="@string/doze_on_charge_title"
-            android:summary="@string/doze_on_charge_summary"
-            settings:keywords="@string/keywords_always_show_time_info"
-            settings:controller="com.android.settings.display.DozeOnChargePreferenceController"
-            settings:userRestriction="no_ambient_display" />
-
-        <SwitchPreferenceCompat
-            android:key="tap_to_wake"
-            android:title="@string/ambient_display_title"
-            android:summary="@string/tap_to_wake_summary" />
-
-        <com.android.settingslib.PrimarySwitchPreference
-            android:key="gesture_tap"
-            android:title="@string/ambient_display_tap_screen_title"
-            android:fragment="com.android.settings.gestures.TapScreenGestureSettings"
-            settings:searchable="false"
-            settings:keywords="@string/keywords_gesture"
-            settings:controller="com.android.settings.gestures.TapScreenGesturePreferenceController" />
-
-        <com.android.settingslib.PrimarySwitchPreference
-            android:key="ambient_display_double_tap"
-            android:title="@string/ambient_display_title"
-            android:fragment="com.android.settings.gestures.DoubleTapScreenSettings"
-            settings:searchable="false"
-            android:summary="@string/ambient_display_summary"
-            settings:keywords="@string/keywords_gesture"
-            settings:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController" />
-
-        <com.android.settingslib.PrimarySwitchPreference
-            android:key="ambient_display_pick_up"
-            android:title="@string/ambient_display_pickup_title"
-            android:fragment="com.android.settings.gestures.PickupGestureSettings"
-            settings:searchable="false"
-            android:summary="@string/ambient_display_pickup_summary"
-            settings:keywords="@string/keywords_gesture"
-            settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
-
-        <SwitchPreferenceCompat
-            android:key="gesture_screen_off_udfps"
-            android:title="@string/ambient_display_screen_off_udfps_title"
-            android:summary="@string/ambient_display_screen_off_udfps_summary"
-            settings:keywords="@string/keywords_gesture"
-            settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
-
-        <!-- Actually controls doze enablement -->
-        <SwitchPreferenceCompat
-            android:key="ambient_display_notification"
-            android:title="@string/doze_enabled_title"
-            android:summary="@string/doze_enabled_summary"
-            settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
-
-        <!-- Controls wake for notifications -->
-        <com.yasp.settings.preferences.SecureSettingSwitchPreference
-            android:key="doze_for_notifications"
-            android:title="@string/doze_title"
-            android:summary="@string/doze_summary"
-            android:defaultValue="true" />
-
-        <Preference
-            android:key="ambient_display_custom"
-            android:title="@string/advanced_settings" />
+        <com.android.settings.RestrictedListPreference ns0:key="security_setting_lock_screen_notif_work" ns0:title="@string/locked_work_profile_notification_title" ns0:summary="@string/summary_placeholder" ns1:searchable="false" />
 
     </PreferenceCategory>
 
-    <!-- Work profile settings are at the bottom with high order value to avoid users thinking that
-         any of the above settings (including dynamic) are specific to the work profile. -->
-    <PreferenceCategory
-        android:key="security_setting_lock_screen_notif_work_header"
-        android:title="@string/profile_section_header"
-        android:order="1001"
-        settings:searchable="false">
+    <PreferenceCategory ns0:key="etc_category" ns0:title="@string/etc_category_title" ns0:order="1002" ns1:searchable="false">
 
-        <com.android.settings.RestrictedListPreference
-            android:key="security_setting_lock_screen_notif_work"
-            android:title="@string/locked_work_profile_notification_title"
-            android:summary="@string/summary_placeholder"
-            settings:searchable="false"/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="etc_category"
-        android:title="@string/etc_category_title"
-        android:order="1002"
-        settings:searchable="false">
-
-        <com.yasp.settings.preferences.SystemSettingSwitchPreference
-            android:key="double_tap_sleep_lockscreen"
-            android:title="@string/double_tap_sleep_lockscreen_title"
-            android:summary="@string/double_tap_sleep_lockscreen_summary"
-            android:defaultValue="false" />
-
-    </PreferenceCategory>
+        </PreferenceCategory>
 
 </PreferenceScreen>

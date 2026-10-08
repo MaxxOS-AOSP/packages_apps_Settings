@@ -17,6 +17,7 @@ package com.android.settings.utils
 
 import android.app.ActivityManager
 import android.content.Context
+import android.os.BatteryManager
 import android.os.Environment
 import android.os.StatFs
 import android.view.WindowManager
@@ -49,15 +50,9 @@ object DeviceInfoUtil {
 
     fun getBatteryCapacity(context: Context): String {
         return try {
-            val intent = context.registerReceiver(null,
-                android.content.IntentFilter(android.content.Intent.ACTION_BATTERY_CHANGED))
-            val chargeFull = intent?.getIntExtra("charge_full", -1) ?: -1
-            if (chargeFull > 0) {
-                "${chargeFull} mAh"
-            } else {
-                val capacity = intent?.getIntExtra(android.os.BatteryManager.EXTRA_CAPACITY, -1)
-                if (capacity != null && capacity > 0) "${capacity}%" else "--"
-            }
+            val bm = context.getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+            val capacity = bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+            if (capacity in 0..100) "${capacity}%" else "--"
         } catch (e: Exception) {
             "--"
         }

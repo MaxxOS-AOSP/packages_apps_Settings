@@ -14,8 +14,14 @@
  * limitations under the License.
  */
 
-package com.android.settings.gestures;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.core.PreferenceControllerMixin;
+import com.android.settings.gestures.DisplayWakeGesturePageController;
+import androidx.preference.SwitchPreference;
 import android.content.Context;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.UserHandle;
@@ -24,15 +30,9 @@ import android.provider.Settings;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
-import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.widget.MainSwitchPreference;
-
-import com.yasp.settings.preferences.SecureSettingSwitchPreference;
 
 public abstract class DisplayWakeGesturePageController extends AbstractPreferenceController
         implements PreferenceControllerMixin, OnCheckedChangeListener {
@@ -41,9 +41,9 @@ public abstract class DisplayWakeGesturePageController extends AbstractPreferenc
     private final boolean mDefault;
     private AmbientDisplayConfiguration mAmbientConfig;
     private MainSwitchPreference mSwitch;
-    private SecureSettingSwitchPreference mAmbientPref;
-    private SecureSettingSwitchPreference mAODPref;
-    private SecureSettingSwitchPreference mVibPref;
+    private SwitchPreference mAmbientPref;
+    private SwitchPreference mAODPref;
+    private SwitchPreference mVibPref;
 
     private boolean mIsVibAvailable;
 

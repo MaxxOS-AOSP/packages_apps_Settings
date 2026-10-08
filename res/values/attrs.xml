@@ -227,4 +227,7 @@
     <declare-styleable name="WallpaperView">
         <attr name="blurred" format="boolean" />
     </declare-styleable>
+
+    <attr name="interval" format="integer" />
+    <attr name="units" format="string" />
 </resources>

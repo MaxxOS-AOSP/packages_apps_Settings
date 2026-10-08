@@ -13,22 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings.fuelgauge.batterysaver;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
+import androidx.preference.ListPreference;
+import androidx.preference.SeekBarPreference;
+import androidx.preference.SwitchPreference;
 import android.content.Context;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.UserHandle;
 import android.provider.Settings;
 
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.SwitchPreferenceCompat;
-
 import com.android.settings.R;
 import com.android.settingslib.core.AbstractPreferenceController;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 import java.lang.StringBuilder;
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
     private static final String KEY_DISABLE_OPTIONAL_SENSORS = "disable_optional_sensors";
     private static final String KEY_LOCATION_MODE = "location_mode";
 
-    private CustomSeekBarPreference mBrightnessFactor;
+    private SeekBarPreference mBrightnessFactor;
     private SwitchPreferenceCompat mEnableBrightness;
 
     private static final Map<String, String> sDefaultsMap = new HashMap<>();
@@ -99,8 +100,8 @@ public class BatterySaverAdvancedSettingsPreferenceController extends AbstractPr
             final String val = getValueForKey(key);
             if (pref instanceof SwitchPreferenceCompat) {
                 ((SwitchPreferenceCompat) pref).setChecked(Boolean.valueOf(val));
-            } else if (pref instanceof CustomSeekBarPreference) {
-                ((CustomSeekBarPreference) pref).setValue(Math.round(Float.valueOf(val) * 100f));
+            } else if (pref instanceof SeekBarPreference) {
+                ((SeekBarPreference) pref).setValue(Math.round(Float.valueOf(val) * 100f));
             } else if (pref instanceof ListPreference) {
                 ((ListPreference) pref).setValueIndex(Integer.valueOf(val));
             }

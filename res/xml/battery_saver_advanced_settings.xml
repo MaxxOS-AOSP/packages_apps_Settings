@@ -1,135 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2023 Yet Another AOSP Project
+<?xml version='1.0' encoding='utf-8'?>
+<PreferenceScreen xmlns:ns0="http://schemas.android.com/apk/res/android" ns0:title="@string/advanced_apps">
 
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+    <PreferenceCategory ns0:title="@string/display_settings">
 
-          http://www.apache.org/licenses/LICENSE-2.0
+        <SwitchPreferenceCompat ns0:key="enable_brightness_adjustment" ns0:title="@string/enable_brightness_adjustment_tite" ns0:defaultValue="false" />
 
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
+        <SwitchPreferenceCompat ns0:key="disable_aod" ns0:title="@string/disable_aod_tite" ns0:defaultValue="true" />
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/advanced_apps">
+        <SwitchPreferenceCompat ns0:key="enable_night_mode" ns0:title="@string/enable_night_mode_tite" ns0:defaultValue="true" />
 
-    <PreferenceCategory
-        android:title="@string/display_settings">
+        <SwitchPreferenceCompat ns0:key="disable_animation" ns0:title="@string/disable_animation_tite" ns0:defaultValue="false" />
 
-        <com.yasp.settings.preferences.GlobalSettingSwitchPreference
-            android:key="low_power_mode_hbm"
-            android:title="@string/low_power_mode_hbm_title"
-            android:defaultValue="true" />
+        </PreferenceCategory>
 
-        <com.yasp.settings.preferences.GlobalSettingSwitchPreference
-            android:key="low_power_mode_dmd"
-            android:title="@string/low_power_mode_dmd_title"
-            android:defaultValue="true" />
+    <PreferenceCategory ns0:title="@string/keywords_applications_settings">
 
-        <SwitchPreferenceCompat
-            android:key="enable_brightness_adjustment"
-            android:title="@string/enable_brightness_adjustment_tite"
-            android:defaultValue="false" />
+        <SwitchPreferenceCompat ns0:key="disable_launch_boost" ns0:title="@string/disable_launch_boost_tite" ns0:defaultValue="true" />
 
-        <com.yasp.settings.preferences.CustomSeekBarPreference
-            android:key="adjust_brightness_factor"
-            android:title="@string/adjust_brightness_factor_title"
-            android:max="100"
-            settings:min="10"
-            settings:interval="10"
-            settings:defaultValue="50"
-            settings:units="%" />
+        <SwitchPreferenceCompat ns0:key="enable_quick_doze" ns0:title="@string/enable_quick_doze_tite" ns0:summary="@string/enable_quick_doze_summary" ns0:defaultValue="true" />
 
-        <SwitchPreferenceCompat
-            android:key="disable_aod"
-            android:title="@string/disable_aod_tite"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="force_all_apps_standby" ns0:title="@string/force_all_apps_standby_tite" ns0:summary="@string/force_all_apps_standby_summary" ns0:defaultValue="true" />
 
-        <SwitchPreferenceCompat
-            android:key="enable_night_mode"
-            android:title="@string/enable_night_mode_tite"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="force_background_check" ns0:title="@string/force_background_check_tite" ns0:defaultValue="true" />
 
-        <SwitchPreferenceCompat
-            android:key="disable_animation"
-            android:title="@string/disable_animation_tite"
-            android:defaultValue="false" />
+        <SwitchPreferenceCompat ns0:key="defer_full_backup" ns0:title="@string/defer_full_backup_tite" ns0:defaultValue="true" />
 
-        <com.yasp.settings.preferences.GlobalSettingSwitchPreference
-            android:key="low_power_mode_disable_blurs"
-            android:title="@string/low_power_mode_disable_blurs_title"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="defer_keyvalue_backup" ns0:title="@string/defer_keyvalue_backup_tite" ns0:defaultValue="true" />
+
+        <SwitchPreferenceCompat ns0:key="enable_datasaver" ns0:title="@string/enable_datasaver_tite" ns0:defaultValue="false" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/keywords_applications_settings">
+    <PreferenceCategory ns0:title="@string/category_other_hw_title">
 
-        <SwitchPreferenceCompat
-            android:key="disable_launch_boost"
-            android:title="@string/disable_launch_boost_tite"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="disable_vibration" ns0:title="@string/disable_vibration_tite" ns0:defaultValue="false" />
 
-        <SwitchPreferenceCompat
-            android:key="enable_quick_doze"
-            android:title="@string/enable_quick_doze_tite"
-            android:summary="@string/enable_quick_doze_summary"
-            android:defaultValue="true" />
+        <SwitchPreferenceCompat ns0:key="disable_optional_sensors" ns0:title="@string/disable_optional_sensors_tite" ns0:defaultValue="true" />
 
-        <SwitchPreferenceCompat
-            android:key="force_all_apps_standby"
-            android:title="@string/force_all_apps_standby_tite"
-            android:summary="@string/force_all_apps_standby_summary"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="force_background_check"
-            android:title="@string/force_background_check_tite"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="defer_full_backup"
-            android:title="@string/defer_full_backup_tite"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="defer_keyvalue_backup"
-            android:title="@string/defer_keyvalue_backup_tite"
-            android:defaultValue="true" />
-
-        <SwitchPreferenceCompat
-            android:key="enable_datasaver"
-            android:title="@string/enable_datasaver_tite"
-            android:defaultValue="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/category_other_hw_title">
-
-        <SwitchPreferenceCompat
-            android:key="disable_vibration"
-            android:title="@string/disable_vibration_tite"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
-            android:key="disable_optional_sensors"
-            android:title="@string/disable_optional_sensors_tite"
-            android:defaultValue="true" />
-
-        <ListPreference
-            android:key="location_mode"
-            android:title="@string/location_mode_title"
-            android:summary="%s"
-            android:entries="@array/location_mode_entries"
-            android:entryValues="@array/location_mode_values"
-            android:defaultValue="3" />
+        <ListPreference ns0:key="location_mode" ns0:title="@string/location_mode_title" ns0:summary="%s" ns0:entries="@array/location_mode_entries" ns0:entryValues="@array/location_mode_values" ns0:defaultValue="3" />
 
     </PreferenceCategory>
 

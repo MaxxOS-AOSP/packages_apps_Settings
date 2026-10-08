@@ -16,6 +16,10 @@
 
 package com.android.settings.sound;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SeekBarPreference;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -24,17 +28,10 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
 
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.R;
-import com.android.settings.sound.CustomVibrationPreferenceController;
+
 import com.android.settings.Utils;
 import com.android.settingslib.core.AbstractPreferenceController;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 /**
  * This class allows choosing a vibration pattern while ringing
@@ -48,9 +45,9 @@ public class CustomVibrationPreferenceController extends AbstractPreferenceContr
     private static final String KEY_CUSTOM_VIB3 = "custom_vibration_pattern3";
     private static final String DEFAULT_SETTINGS_VALUE = "0,800,800";
 
-    private CustomSeekBarPreference mCustomVib1;
-    private CustomSeekBarPreference mCustomVib2;
-    private CustomSeekBarPreference mCustomVib3;
+    private SeekBarPreference mCustomVib1;
+    private SeekBarPreference mCustomVib2;
+    private SeekBarPreference mCustomVib3;
 
     protected final Vibrator mVibrator;
 
@@ -84,9 +81,9 @@ public class CustomVibrationPreferenceController extends AbstractPreferenceContr
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
 
-        mCustomVib1 = (CustomSeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB1);
-        mCustomVib2 = (CustomSeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB2);
-        mCustomVib3 = (CustomSeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB3);
+        mCustomVib1 = (SeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB1);
+        mCustomVib2 = (SeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB2);
+        mCustomVib3 = (SeekBarPreference) screen.findPreference(KEY_CUSTOM_VIB3);
         updateCustomVibPreferences();
     }
 

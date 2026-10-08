@@ -14,16 +14,18 @@
  * limitations under the License.
  */
 
-package com.android.settings.display;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.dashboard.DashboardFragment.OnPreferenceChangeListener;
+import androidx.preference.SeekBarPreference;
 import android.content.Context;
 import android.hardware.display.ColorDisplayManager;
 import android.text.TextUtils;
 
-import androidx.preference.PreferenceScreen;
-
 import com.android.settings.core.SliderPreferenceController;
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 public class ColorBalancePreferenceController extends SliderPreferenceController {
 
@@ -55,7 +57,7 @@ public class ColorBalancePreferenceController extends SliderPreferenceController
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        final CustomSeekBarPreference preference = screen.findPreference(getPreferenceKey());
+        final SeekBarPreference preference = screen.findPreference(getPreferenceKey());
         preference.setValue(getSliderPosition());
         preference.setOnPreferenceChangeListener(this);
     }

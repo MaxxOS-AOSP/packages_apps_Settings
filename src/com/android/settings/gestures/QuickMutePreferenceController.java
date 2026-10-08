@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 
-package com.android.settings.gestures;
+package com.android.settings.accessibility;
 
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import com.android.settings.core.PreferenceControllerMixin;
+import androidx.preference.SeekBarPreference;
 import android.content.Context;
 import android.database.ContentObserver;
 import android.provider.Settings;
 
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-
-import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
-
-import com.yasp.settings.preferences.CustomSeekBarPreference;
 
 public class QuickMutePreferenceController extends AbstractPreferenceController
         implements Preference.OnPreferenceChangeListener, PreferenceControllerMixin {
 
     private static final String KEY = "volume_button_quick_mute_delay";
 
-    private CustomSeekBarPreference mDelayPref;
+    private SeekBarPreference mDelayPref;
     private final Context mContext;
 
     public QuickMutePreferenceController(Context context) {

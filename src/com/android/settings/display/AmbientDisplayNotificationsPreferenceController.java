@@ -11,8 +11,13 @@
  * KIND, either express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
-package com.android.settings.display;
 
+package com.android.settings.accessibility;
+
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 
 import android.app.settings.SettingsEnums;
@@ -23,15 +28,11 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import androidx.annotation.VisibleForTesting;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
 
 import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
 import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
-
-import com.yasp.settings.preferences.SecureSettingSwitchPreference;
 
 public class AmbientDisplayNotificationsPreferenceController extends
         TogglePreferenceController implements Preference.OnPreferenceChangeListener {
@@ -46,7 +47,7 @@ public class AmbientDisplayNotificationsPreferenceController extends
 
     private final MetricsFeatureProvider mMetricsFeatureProvider;
     private AmbientDisplayConfiguration mConfig;
-    private SecureSettingSwitchPreference mDozeForNotifPref;
+    private SwitchPreference mDozeForNotifPref;
 
     public AmbientDisplayNotificationsPreferenceController(Context context, String key) {
         super(context, key);
@@ -67,7 +68,7 @@ public class AmbientDisplayNotificationsPreferenceController extends
     @Override
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
-        mDozeForNotifPref = (SecureSettingSwitchPreference)
+        mDozeForNotifPref = (SwitchPreference)
                 screen.findPreference(KEY_DOZE_FOR_NOTIFICATIONS);
         if (mDozeForNotifPref != null)
             mDozeForNotifPref.setEnabled(isChecked());
